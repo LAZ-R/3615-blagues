@@ -221,9 +221,11 @@ let isWeekend = false;
 let isHoliday = false;
 
 const USER = getUser();
-const lastConv = USER.previous[USER.previous.length -1];
-if (lastConv.date == todayDate && lastConv.month == todayMonth && lastConv.year == todayYear) {
-  hasBeenMadeToday = true;
+if (USER.previous.length != 0) {
+  const lastConv = USER.previous[USER.previous.length -1];
+  if (lastConv.date == todayDate && lastConv.month == todayMonth && lastConv.year == todayYear) {
+    hasBeenMadeToday = true;
+  }
 }
 
 if (todayDay == 6 || todayDay == 0) {
