@@ -2,7 +2,7 @@ var cacheName = 'BLAGUES';
 var filesToCache = [
   './',
   './index.html',
-  './CSS/style.css',
+  './css/style.css',
   './main.js'
 ];
 
