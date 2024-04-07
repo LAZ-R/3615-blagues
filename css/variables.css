@@ -1,0 +1,155 @@
+:root {
+    /* ########################################################################
+    --------------------------------- COLORS ---------------------------------
+    ######################################################################## */
+
+    /* Grays */
+    --gray-90: #191919;
+    --filter-gray-90: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(430%) hue-rotate(344deg) brightness(103%) contrast(80%);
+
+    --gray-80: #333333;
+    --filter-gray-80: brightness(0) saturate(100%) invert(16%) sepia(12%) saturate(2%) hue-rotate(314deg) brightness(90%) contrast(86%);
+
+    --gray-70: #4d4d4d;
+    --filter-gray-70: brightness(0) saturate(100%) invert(26%) sepia(0%) saturate(1302%) hue-rotate(237deg) brightness(107%) contrast(88%);
+
+    --gray-60: #666666;
+    --filter-gray-60: brightness(0) saturate(100%) invert(42%) sepia(0%) saturate(0%) hue-rotate(321deg) brightness(92%) contrast(90%);
+
+    --gray-50: #808080;
+    --filter-gray-50: brightness(0) saturate(100%) invert(53%) sepia(0%) saturate(967%) hue-rotate(187deg) brightness(94%) contrast(82%);
+
+    --gray-40: #999999;
+    --filter-gray-40: brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(256%) hue-rotate(167deg) brightness(80%) contrast(99%);
+
+    --gray-30: #b3b3b3;
+    --filter-gray-30: brightness(0) saturate(100%) invert(71%) sepia(0%) saturate(0%) hue-rotate(344deg) brightness(103%) contrast(88%);
+
+    --gray-20: #cccccc;
+    --filter-gray-20: brightness(0) saturate(100%) invert(68%) sepia(98%) saturate(0%) hue-rotate(134deg) brightness(100%) contrast(95%);
+
+    --gray-10: #e6e6e6;
+    --filter-gray-10: brightness(0) saturate(100%) invert(98%) sepia(13%) saturate(70%) hue-rotate(179deg) brightness(111%) contrast(80%);
+
+    --filter--to-white: brightness(0) saturate(100%) invert(99%) sepia(7%) saturate(13%) hue-rotate(26deg) brightness(98%) contrast(104%);
+
+    /* App colors */
+    --light-blue: #8ecbee;
+    --blue:       #004f7c;
+    --dark-blue:  #0c3c57;
+
+    --light-green: #d0ec9f;
+
+    --fluo-green:   #00ff00;
+    --fluo-yellow:  #ffff00;
+    --fluo-magenta: #ff00ff;
+
+    /* Usage */
+    --html-background-color: white;
+    --header-background-color: var(--blue);
+    
+    /* Font colors */
+    --font-color-default: white;
+    --font-color-links: var(--light-blue);
+
+    --box-shadow-soft: 0px 3px 10px #0000004f;
+    --box-shadow: 0px 6px 8px #0000008f;
+    --box-shadow-strong: 0px 7px 10px #000000ab;
+
+    /* ########################################################################
+    ---------------------------------- SIZES ----------------------------------
+    ######################################################################## */
+
+    /* ------------------------------------------------------------------------
+    --------------------------------- HEIGHTS ---------------------------------
+    ------------------------------------------------------------------------ */
+
+    /* --------------------------- header height --------------------------- */
+    --phone-header-height: 0svh;
+    --tablet-header-height: 0svh;
+    --laptop-header-height: 0svh;
+    --desktop-header-height: 0svh;
+    /* --------------------------------------------------------------------- */
+    --header-height: var(--phone-header-height);
+    /* --------------------------------------------------------------------- */
+
+    /* ---------------------------- main height ---------------------------- */
+    --phone-main-height: 100svh;
+    --tablet-main-height: 100svh;
+    --laptop-main-height: 100svh;
+    --desktop-main-height: 100svh;
+    /* --------------------------------------------------------------------- */
+    --main-height: var(--phone-main-height);
+    /* --------------------------------------------------------------------- */
+
+    /* --------------------------- footer height --------------------------- */
+    --phone-footer-height: 0svh;
+    --tablet-footer-height: 0svh;
+    --laptop-footer-height: 0svh;
+    --desktop-footer-height: 0svh;
+    /* --------------------------------------------------------------------- */
+    --footer-height: var(--phone-footer-height);
+    /* --------------------------------------------------------------------- */
+
+    /* ------------------------------------------------------------------------
+    -------------------------------- PADDINGS --------------------------------
+    ------------------------------------------------------------------------ */
+
+    /* --- horizontal padding --- */
+    --phone-horizontal-padding: 6.5dvw;
+    --tablet-horizontal-padding: 7dvw;
+    --laptop-horizontal-padding: 10dvw;
+    --desktop-horizontal-padding: 16dvw;
+    /* --------------------------------------------------------------------- */
+    --horizontal-padding : var(--phone-horizontal-padding);
+    /* --------------------------------------------------------------------- */
+
+    
+    --button-border-radius: 0;
+
+    /* Button font size */
+    --phone-button-font-size: 18px;
+    --tablet-button-font-size: 16px;
+    --laptop-button-font-size: 15px;
+    --desktop-button-font-size: 14px;
+    /* --------------------------------------------------------------------- */
+    --button-font-size: var(--phone-button-font-size);
+    /* --------------------------------------------------------------------- */
+}
+
+/* ############################################################################
+-------------------------------- MEDIA QUERIES --------------------------------
+############################################################################ */
+
+/* -------------------------------- Tablets -------------------------------- */
+
+@media (min-width : 767px) and (max-width : 1279px) {
+    :root {
+        --main-height: var(--tablet-main-height);
+        --header-height: var(--tablet-header-height);
+        --footer-height: var(--tablet-footer-height);
+        --horizontal-padding : var(--tablet-horizontal-padding);
+    }
+}
+
+/* -------------------------------- Laptops -------------------------------- */
+
+@media (min-width: 1280px) and (max-width: 1919px) {
+    :root {
+        --main-height: var(--laptop-main-height);
+        --header-height: var(--laptop-header-height);
+        --footer-height: var(--laptop-footer-height);
+        --horizontal-padding : var(--laptop-horizontal-padding);
+    }
+}
+
+/* -------------------------------- Desktops -------------------------------- */
+
+@media (min-width: 1920px) {
+    :root {
+        --main-height: var(--desktop-main-height);
+        --header-height: var(--desktop-header-height);
+        --footer-height: var(--desktop-footer-height);
+        --horizontal-padding : var(--desktop-horizontal-padding);
+    }
+}

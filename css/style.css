@@ -1,0 +1,449 @@
+@import url("./variables.css");
+
+/* :root {
+    
+} */
+
+* {
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    user-select: none;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+p {
+    /* user-select: none; */
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+/* ############################################################################
+------------------------------- MAIN CONTAINERS -------------------------------
+############################################################################ */
+
+html,
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 100dvw; width: 100dvw; max-width: 100dvw;
+    min-height: 100svh; height: 100svh; max-height: 100svh;
+    padding: 0;
+    margin: 0;
+    background-color: var(--html-background-color);
+    color: var(--font-color-default);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--header-height); height: var(--header-height); max-height: var(--header-height);
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--header-background-color);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: var(--main-height); height: var(--main-height); max-height: var(--main-height);
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--footer-height); height: var(--footer-height); max-height: var(--footer-height);
+    min-width: 100%;
+    margin: 0;
+    padding: 0 var(--horizontal-padding);
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+}
+
+/* ############################################################################
+--------------------------------- CLICKABLES ---------------------------------
+############################################################################ */
+
+/* -------------------------------- Anchors -------------------------------- */
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    color: var(--font-color-links);
+
+    &:hover {
+        text-decoration: underline;
+    }
+    
+    &:focus {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* -------------------------------- Buttons -------------------------------- */
+
+button {
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    border: none;
+    border-radius: var(--button-border-radius);
+    background-color: var(--gray-10);
+    padding: 2% 5% 2% 5%;
+    margin: 0;
+    font-size: var(--button-font-size);
+    flex-wrap: wrap;
+    color: var(--gray-80);
+
+    &:focus {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+    @media (hover:hover) and (pointer: fine) {
+        button:hover {
+            cursor: pointer;
+            background-color: var(--gray-20);
+        }
+    }
+
+/* -------------------------------- Switch -------------------------------- */
+
+/* The switch - the box around the slider */
+.switch {
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+  
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--gray-20);
+    -webkit-transition: .3s;
+    transition: .3s ease-out;
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px; bottom: 4px;
+        background-color: white;
+        -webkit-transition: .3s;
+        transition: .3s ease-out;
+    }
+}
+  
+  
+input:checked + .slider {
+    background-color: var(--primary);
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+
+    &:before {
+        border-radius: 50%;
+    }
+}
+  
+
+/* ############################################################################
+------------------------------------ MODAL ------------------------------------
+############################################################################ */
+
+.modal-background {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #000000a4;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+
+.modal-div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 60%;
+    border-radius: 20px;
+    background-color: #1d1d1d;
+    overflow-y: scroll;
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.modal-div::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.modal-div {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.modal-inner-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+.modal-title {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* ############################################################################
+-------------------------------- MEDIA QUERIES --------------------------------
+############################################################################ */
+
+/* -------------------------------- Tablets -------------------------------- */
+
+@media (min-width : 767px) and (max-width : 1279px) {
+    /* ... */
+}
+
+/* -------------------------------- Laptops -------------------------------- */
+
+@media (min-width: 1280px) and (max-width: 1919px) {
+    /* ... */
+}
+
+/* -------------------------------- Desktops -------------------------------- */
+
+@media (min-width: 1920px) {
+    /* ... */
+}
+
+
+/* ---------------------------------------- APP SPECIFIC ---------------------------------------- */
+
+/* :root {
+} */
+
+
+.main {
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    color: var(--gray-80);
+
+    .top-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 13svh; height: 13svh; max-height: 13svh;
+        padding: 2svh;
+        gap: 1svh;
+        background-color: var(--gray-10);
+        border-bottom: .5svh solid #8f5ead;
+        font-size: .75rem;
+        font-weight: 600;
+
+        img {
+            width: 6svh;
+        }
+    }
+
+    .conv {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        min-height: 74svh; height: 74svh; max-height: 74svh;
+        padding: 2svh 2svh 4svh 2svh;
+        gap: 3svh;
+        background-color: white;
+        overflow-y: scroll;
+
+        .daily-bloc {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            gap: 1.5svh;
+
+            > span {
+                font-size: .75rem;
+                /* font-weight: 600; */
+            }
+
+            .conv-bloc {
+                border-radius: 1rem;
+                padding: .5rem 1rem;
+                width: fit-content; max-width: 75%;
+                text-align: start;
+    
+                &.question-bloc {
+                    margin-left: auto;
+                    background-color: #8f5ead;
+                    color: white;
+                }
+    
+                &.answer-bloc {
+                    margin-right: auto;
+                    background-color: var(--gray-10);
+
+                    .pending-round {
+                        --round-size: 20px;
+
+                        box-sizing: border-box;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        min-height: var(--round-size); height: var(--round-size); max-height: var(--round-size);
+                        padding: 0;
+                        gap: 4px;
+                  
+                        .pending-dot {
+                          --dot-size: calc(var(--round-size) / 4);
+                          box-sizing: border-box;
+                          display: flex;
+                          min-width: var(--dot-size);
+                          width: var(--dot-size);
+                          max-width: var(--dot-size);
+                          min-height: var(--dot-size);
+                          height: var(--dot-size);
+                          max-height: var(--dot-size);
+                          background-color: var(--gray-70);
+                          border-radius: 500px;
+                  
+                          &.dot1 {
+                            animation: blink 1s infinite;
+                          }
+                          &.dot2 {
+                            animation: blink 1s 0.33s infinite;
+                          }
+                          &.dot3 {
+                            animation: blink 1s 0.66s infinite;
+                          }
+                        }
+                      }
+                  
+                }
+            }
+        }
+    }
+
+    .bottom-container {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 100%; width: 100%; max-width: 100%;
+        min-height: 13svh; height: 13svh; max-height: 13svh;
+        padding: 2svh 2svh;
+        background-color: var(--gray-10);
+
+        --button-size: 7svh;
+
+        .question-display {
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: white;
+            min-width: calc(100% - (var(--button-size) + 2svh)); width: calc(100% - (var(--button-size) + 2svh)); max-width: calc(100% - (var(--button-size) + 2svh));
+            height: 9svh;
+            padding: .75svh 1.5svh;
+            border-radius: 1rem;
+            font-size: .88rem;
+            border: 2px solid var(--gray-30);
+
+            &.disabled {
+                border: 2px solid var(--gray-20);
+                background-color:var(--gray-10) ;
+            }
+        }
+
+        .question-button {
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 200rem;
+            padding: 2svh;
+            background-color: #8f5ead;
+            color: white;
+            
+            min-width: var(--button-size); width: var(--button-size); max-width: var(--button-size);
+            min-height: var(--button-size); height: var(--button-size); max-height: var(--button-size);
+
+            &:disabled {
+                background-color: var(--gray-20);
+            }
+
+            img {
+                width: calc(var(--button-size) / 2.6);
+                height: calc(var(--button-size) / 2.6);
+                filter: var(--filter--to-white)
+            }
+        }
+    }
+}
+
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
