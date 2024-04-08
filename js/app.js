@@ -7,7 +7,7 @@ import { getUser, setStorage, setUser } from "./storage/storage.js";
 --------------------------------- CONSTANTES ---------------------------------
 ############################################################################ */
 const todayCore = new Date();
-//const todayCore = new Date('2024-04-07');
+//const todayCore = new Date('2024-04-02');
 const todayDay = todayCore.getDay();
 const todayDate = todayCore.getDate();
 const todayMonth = todayCore.getMonth();
@@ -126,7 +126,7 @@ const onQuestionClic = (questionId) => {
       setUser(USER);
       
     }, todayAnswer.label.length * 50);
-  }, 1000);
+  }, 800);
 }
 window.onQuestionClic = onQuestionClic;
 
@@ -177,12 +177,60 @@ const getPreviousConversation = () => {
 const getQuestionButtonArea = () => {
   const rndQuestion = QUESTIONS[getRandomIntegerBetween(0, QUESTIONS.length -1)];
   return `
-  <div class="question-display">${rndQuestion.label}</div>
+  <div class="question-display" onclick="getNextQuestionButtonArea(${rndQuestion.id})">${rndQuestion.label}</div>
   <button class="question-button" onclick="onQuestionClic(${rndQuestion.id})">
     <img src="medias/images/font-awsome/paper-plane-solid.svg"
   </button>
 `;
 }
+
+
+const getNextQuestionButtonArea = (questionId) => {
+  if (questionId == QUESTIONS.length) {
+    questionId = 0;
+  }
+  const question = QUESTIONS[questionId];
+  const buttonsContainer = document.getElementById('buttons-container');
+  buttonsContainer.innerHTML = `
+  <div class="question-display" onclick="getNextQuestionButtonArea(${question.id})">${question.label}</div>
+  <button class="question-button" onclick="onQuestionClic(${question.id})">
+    <img src="medias/images/font-awsome/paper-plane-solid.svg"
+  </button>
+`;
+}
+window.getNextQuestionButtonArea = getNextQuestionButtonArea;
+
+const onContrastClick = () => {
+  console.log('clicked');
+  if (isLightTheme) {
+    isLightTheme = false;
+    document.documentElement.style = `
+      --html-background-color: black;
+
+      --grey-10: #191919;
+      --grey-20: #333333;
+      --grey-30: #4d4d4d;
+      --grey-40: #666666;
+      --grey-50: #808080;
+      --grey-60: #999999;
+      --grey-70: #b3b3b3;
+      --grey-80: #cccccc;
+      --grey-90: #e6e6e6;
+
+      --filter-grey-90: brightness(0) saturate(100%) invert(98%) sepia(13%) saturate(70%) hue-rotate(179deg) brightness(111%) contrast(80%);
+    `;
+    const USER = getUser();
+    USER.theme = 'dark';
+    setUser(USER);
+  } else {
+    isLightTheme = true;
+    document.documentElement.style = '';
+    const USER = getUser();
+    USER.theme = 'light';
+    setUser(USER);
+  }
+}
+window.onContrastClick = onContrastClick
 
 /* ############################################################################
 ---------------------------------- EXECUTION ----------------------------------
@@ -198,8 +246,12 @@ setHTMLTitle(APP_NAME);
 // Setting DOM
 document.getElementById('main').innerHTML = `
   <div class="top-container">
-    <img src="./medias/images/3615.webp" />
-    <span>3615 Blagues</span>
+  <div class="blank"></div>
+    <div class="contact">
+      <img src="./medias/images/3615.webp" />
+      <span>3615 Blagues</span>
+    </div>
+    <button onclick="onContrastClick()"><img src="medias/images/font-awsome/circle-half-stroke-solid.svg" /></button>
   </div>
   <div id="conv" class="conv">
     ${getPreviousConversation()}
@@ -219,8 +271,29 @@ setTimeout(() => {
 let hasBeenMadeToday = false;
 let isWeekend = false;
 let isHoliday = false;
+let isLightTheme = true;
 
 const USER = getUser();
+
+if (USER.theme != 'light') {
+  isLightTheme = false;
+  document.documentElement.style = `
+      --html-background-color: black;
+
+      --grey-10: #191919;
+      --grey-20: #333333;
+      --grey-30: #4d4d4d;
+      --grey-40: #666666;
+      --grey-50: #808080;
+      --grey-60: #999999;
+      --grey-70: #b3b3b3;
+      --grey-80: #cccccc;
+      --grey-90: #e6e6e6;
+
+      --filter-grey-90: brightness(0) saturate(100%) invert(98%) sepia(13%) saturate(70%) hue-rotate(179deg) brightness(111%) contrast(80%);
+    `;
+}
+
 if (USER.previous.length != 0) {
   const lastConv = USER.previous[USER.previous.length -1];
   if (lastConv.date == todayDate && lastConv.month == todayMonth && lastConv.year == todayYear) {
@@ -244,13 +317,9 @@ if (
 if (hasBeenMadeToday) {
   const buttonsContainer = document.getElementById('buttons-container');
   buttonsContainer.innerHTML = `
-  <div class="question-display disabled"></div>
-  <button class="question-button" disabled="true">
-    <img src="medias/images/font-awsome/paper-plane-solid.svg"
-  </button>
-  `
-  //const buttons = document.getElementsByClassName('question-button');
-  //for (let button of buttons) {
-  //  button.setAttribute('disabled', true);
-  //}
+    <div class="question-display disabled"></div>
+    <button class="question-button" disabled="true">
+      <img src="medias/images/font-awsome/paper-plane-solid.svg"
+    </button>
+  `;
 }

@@ -1,5 +1,5 @@
 export const QUESTIONS = [
-  { id: 1, label: `Fais moi rire !` },
+  { id: 1, label: `Je veux une blague, allez !` },
   { id: 2, label: `On se fend la poire ou quoi ?` },
   { id: 3, label: `T'aurais pas une petite histoire drôle sous le coude ?` },
   { id: 4, label: `Balance la vanne !` },
@@ -7,7 +7,7 @@ export const QUESTIONS = [
   { id: 6, label: `Fais péter la blague !` },
   { id: 7, label: `Une petite blague pour égayer ma journée ?` },
   { id: 8, label: `Balance le fun !` },
-  { id: 9, label: `Je veux une blague, allez !` },
+  { id: 9, label: `Fais moi rire !` },
   { id: 10, label: `J'attend ma blagounette !` },
   { id: 11, label: `Une blague !<br>Une blague !<br>Une blague !` },
   { id: 12, label: `Une blague, stp` },
@@ -16,6 +16,9 @@ export const QUESTIONS = [
   { id: 15, label: `Je suis d'humeur pour une petite blague, tu en as une ?` },
   { id: 16, label: `Fais moi rêver !` },
 ];
+
+// https://www.topito.com/top-des-blagues-courtes (t'es à la 64)
+//
 
 export const ANSWERS = [
   // weekend ----------------------------------------------
@@ -39,6 +42,10 @@ export const ANSWERS = [
   {
     id: 2001, date: 0, month: 0,
     label: `T'as cru que je bossais les jours fériés toi ou quoi ?`,
+  },
+  {
+    id: 1002, date: 0, month: 0,
+    label: `Wesh t'as cru y avait que toi qui avait droit à ton jour férié ?`,
   },
   // Janvier ----------------------------------------------
   { // 01 janvier
@@ -367,7 +374,7 @@ export const ANSWERS = [
   },
   { // 21 mars
     id: 81, date: 21, month: 2,
-    label: `Blague du 21 mars`
+    label: `C'est l'histoire d'un pingouin qui respirait par les fesses.<br><br>Un jour il s'est assis et il est mort. 🐧`
   },
   { // 22 mars
     id: 82, date: 22, month: 2,
@@ -399,7 +406,7 @@ export const ANSWERS = [
   },
   { // 29 mars
     id: 89, date: 29, month: 2,
-    label: `Blague du 29 mars`
+    label: `Qu'est-ce qu'un bossu sans bras ni jambes ?<br><br>Une madeleine 💀`
   },
   { // 30 mars
     id: 90, date: 30, month: 2,
@@ -413,23 +420,27 @@ export const ANSWERS = [
   // Avril ----------------------------------------------
   { // 01 avril
     id: 92, date: 1, month: 3,
-    label: `Blague du 1 avril`
+    label: `Le poisson d'avril est une plaisanterie ou une farce que l'on fait le 1er avril à ses connaissances, à ses amis et sa famille.<br>
+    Il est aussi de coutume de faire des canulars dans les médias (aussi bien presse écrite, radio, télévision que sur Internet).<br>
+    Une autre plaisanterie commune du 1er avril est d'accrocher un poisson (souvent en papier) dans le dos d'une personne dont on veut se moquer, sans qu'elle ne s'en rende compte.<br><br>
+    "Poisson d'avril !" est une exclamation qui se dit une fois que la plaisanterie est découverte.<br><br>
+    🐟`
   },
   { // 02 avril
     id: 93, date: 2, month: 3,
-    label: `Blague du 2 avril`
+    label: `C'est l'histoire d'un putois qui rencontre un autre putois.<br><br>Il lui dit : "Tu pues, toi" 🦨`
   },
   { // 03 avril
     id: 94, date: 3, month: 3,
-    label: `Blague du 3 avril`
+    label: `C'est l'histoire d'une brioche qui n'allait jamais aux sports d'hiver.<br><br>Parce qu'elle ne savait Pasquier 🎿`
   },
   { // 04 avril
     id: 95, date: 4, month: 3,
-    label: `Blague du 4 avril`
+    label: `Qu'est-ce qui est vert, qui tourne très très vite et qui devient rouge ?<br><br>Une grenouille dans un mixeur 💀`
   },
   { // 05 avril
     id: 96, date: 5, month: 3,
-    label: `Blague du 5 avril`
+    label: `Qu'est-ce qu'un canif ?<br><br>Un petit fien 🐶`
   },
   { // 06 avril
     id: 97, date: 6, month: 3,
@@ -441,7 +452,7 @@ export const ANSWERS = [
   },
   { // 08 avril
     id: 99, date: 8, month: 3,
-    label: `Comment appelle-t-on une manifestation d'aveugles ?<br><br>Un festival de cannes 💀`
+    label: `Comment appelle-t-on un combat entre un petit pois et une carotte ?<br><br>Un bon duel 🥕`
   },
   { // 09 avril
     id: 100, date: 9, month: 3,
@@ -485,7 +496,7 @@ export const ANSWERS = [
   },
   { // 19 avril
     id: 110, date: 19, month: 3,
-    label: `Comment appelle-t-on un combat entre un petit pois et une carotte ?<br><br>Un bon duel 🥕`
+    label: `Comment appelle-t-on une manifestation d'aveugles ?<br><br>Un festival de cannes 💀`
   },
   { // 20 avril
     id: 111, date: 20, month: 3,
@@ -543,7 +554,7 @@ export const ANSWERS = [
   },
   { // 03 mai
     id: 124, date: 3, month: 4,
-    label: `Blague du 3 mai`
+    label: `Que risque-t-on à lancer de l'ail contre un mur ?<br><br>Le retour du jet d'ail 😉`
   },
   { // 04 mai
     id: 125, date: 4, month: 4,
@@ -555,11 +566,11 @@ export const ANSWERS = [
   },
   { // 06 mai
     id: 127, date: 6, month: 4,
-    label: `Blague du 6 mai`
+    label: `Quelle est la fée la plus paresseuse ?<br><br>✨ La fée Néante ✨`
   },
   { // 07 mai
     id: 128, date: 7, month: 4,
-    label: `Blague du 7 mai`
+    label: `Que dit une noisette qui tombe à l'eau ?<br><br>"Au secours, je me noix !" 🌊`
   },
   { // 08 mai
     id: 129, date: 8, month: 4,
@@ -567,11 +578,11 @@ export const ANSWERS = [
   },
   { // 09 mai
     id: 130, date: 9, month: 4,
-    label: `Blague du 9 mai`
+    label: `Tu connais l'histoire de l'armoire ?<br><br>Elle est pas commode...<br>🥳`
   },
   { // 10 mai
     id: 131, date: 10, month: 4,
-    label: `Blague du 10 mai`
+    label: `Que fait une fraise sur un cheval ?<br><br>Tagada Tagada 🍓`
   },
   { // 11 mai
     id: 132, date: 11, month: 4,
@@ -583,23 +594,23 @@ export const ANSWERS = [
   },
   { // 13 mai
     id: 134, date: 13, month: 4,
-    label: `Blague du 13 mai`
+    label: `Que fait un crocodile quand il rencontre une superbe femelle ?<br><br>Il Lacoste 🐊`
   },
   { // 14 mai
     id: 135, date: 14, month: 4,
-    label: `Blague du 14 mai`
+    label: `Pourquoi n'y a-t-il plus de mammouths sur terre ?<br>Parce qu'il n'y a plus de pappouths 😭`
   },
   { // 15 mai
     id: 136, date: 15, month: 4,
-    label: `Blague du 15 mai`
+    label: `Qu'est ce qui n'est pas un steak ?<br><br>Une pastèque 🍉`
   },
   { // 16 mai
     id: 137, date: 16, month: 4,
-    label: `Blague du 16 mai`
+    label: `Comment appelle-t-on un chien qui n'a pas de pattes ?<br><br>On ne l'appelle pas, on va le chercher... 🐶`
   },
   { // 17 mai
     id: 138, date: 17, month: 4,
-    label: `Blague du 17 mai`
+    label: `Deux œufs discutent :<br><br>"Pourquoi t'es tout vert et aussi poilu ?<br>— Parce que j'suis un kiwi, ducon."<br>🥝`
   },
   { // 18 mai
     id: 139, date: 18, month: 4,
@@ -611,23 +622,23 @@ export const ANSWERS = [
   },
   { // 20 mai
     id: 141, date: 20, month: 4,
-    label: `Blague du 20 mai`
+    label: `Un mec rentre dans un café.<br><br>Et plouf ! ☕`
   },
   { // 21 mai
     id: 142, date: 21, month: 4,
-    label: `Blague du 21 mai`
+    label: `Tu connais l'histoire du lit vertical ?<br><br>Elle est à dormir debout 🤣`
   },
   { // 22 mai
     id: 143, date: 22, month: 4,
-    label: `Blague du 22 mai`
+    label: `Quelle est la différence entre un lapin et une bouteille en plastique ?<br><br>Ils sont tous les deux en plastique.<br>Sauf le lapin 😐`
   },
   { // 23 mai
     id: 144, date: 23, month: 4,
-    label: `Blague du 23 mai`
+    label: `Un bébé héron demande à son papa :<br><br>"On est quoi nous, papa, des <i>tapons</i> ?"<br>—Mais non, on est des <i>hérons, HÉRONS</i> petit, pas <i>tapons</i> ! 🥁`
   },
   { // 24 mai
     id: 145, date: 24, month: 4,
-    label: `Blague du 24 mai`
+    label: `C'est l'histoire d'un aveugle qui rentre dans un bar.<br><br>Et dans une table, et dans une chaise, et dans un mur... 💀`
   },
   { // 25 mai
     id: 146, date: 25, month: 4,
@@ -639,23 +650,23 @@ export const ANSWERS = [
   },
   { // 27 mai
     id: 148, date: 27, month: 4,
-    label: `Blague du 27 mai`
+    label: `Qu'est-ce qui est transparent et qui court dans un champ ?<br><br>Un troupeau de vitres 😂`
   },
   { // 28 mai
     id: 149, date: 28, month: 4,
-    label: `Blague du 28 mai`
+    label: `Pourquoi faut-il enlever ses lunettes avant un alcootest ?<br><br>Parce que ça fait déjà 2 verres de moins ! 🤓`
   },
   { // 29 mai
     id: 150, date: 29, month: 4,
-    label: `Blague du 29 mai`
+    label: `C'est l'histoire d'un têtard.<br><br>Il croyait qu'il était tôt.<br>Mais en fait il est têtard ⏰`
   },
   { // 30 mai
     id: 151, date: 30, month: 4,
-    label: `Blague du 30 mai`
+    label: `Qu'est-ce qui est jaune et qui fait "crac crac" ?<br><br>Un poussin qui mange des chips 🐤`
   },
   { // 31 mai
     id: 152, date: 31, month: 4,
-    label: `Blague du 31 mai`
+    label: `C'est l'histoire d'une mouette qui partage un gâteau.<br><br>Du coup elle fait mouette mouette 🥰`
   },
   // Juin ----------------------------------------------
   { // 01 juin

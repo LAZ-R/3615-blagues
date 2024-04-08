@@ -9,6 +9,7 @@ export const setStorage = () => {
     
     let userTMP = {
       previous: [],
+      theme: 'light'
     };
     STORAGE.setItem(`${appShortName}User`, JSON.stringify(userTMP));
   }

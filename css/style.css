@@ -101,12 +101,12 @@ button {
     display: flex;
     border: none;
     border-radius: var(--button-border-radius);
-    background-color: var(--gray-10);
+    background-color: var(--grey-10);
     padding: 2% 5% 2% 5%;
     margin: 0;
     font-size: var(--button-font-size);
     flex-wrap: wrap;
-    color: var(--gray-80);
+    color: var(--grey-80);
 
     &:focus {
         -webkit-tap-highlight-color: transparent;
@@ -115,7 +115,7 @@ button {
     @media (hover:hover) and (pointer: fine) {
         button:hover {
             cursor: pointer;
-            background-color: var(--gray-20);
+            background-color: var(--grey-20);
         }
     }
 
@@ -142,7 +142,7 @@ button {
     position: absolute;
     cursor: pointer;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: var(--gray-20);
+    background-color: var(--grey-20);
     -webkit-transition: .3s;
     transition: .3s ease-out;
 
@@ -272,27 +272,55 @@ input:checked + .slider:before {
 .main {
     justify-content: flex-start;
     align-items: center;
-    background-color: white;
-    color: var(--gray-80);
+    background-color: var(--html-background-color);
+    color: var(--font-color-default);
 
     .top-container {
         box-sizing: border-box;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         min-height: 13svh; height: 13svh; max-height: 13svh;
         padding: 2svh;
-        gap: 1svh;
-        background-color: var(--gray-10);
-        border-bottom: .5svh solid #8f5ead;
-        font-size: .75rem;
-        font-weight: 600;
+        background-color: var(--grey-10);
+        border-bottom: .5svh solid var(--color--global-primary);
 
-        img {
-            width: 6svh;
+        .blank {
+            min-width: 33%;
+            min-height: 13svh;
         }
+
+        .contact {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 33%;
+            min-height: 13svh; height: 13svh; max-height: 13svh;
+            gap: 1svh;
+            font-size: .75rem;
+            font-weight: 600;
+
+            img {
+                width: 6svh;
+            }
+        }
+
+        button {
+            justify-content: flex-end;
+            width: 33%;
+            padding: 0;
+
+            img {
+                filter: var(--filter-grey-90);
+                width: 3svh;
+            }
+        }
+
+        
     }
 
     .conv {
@@ -305,7 +333,6 @@ input:checked + .slider:before {
         min-height: 74svh; height: 74svh; max-height: 74svh;
         padding: 2svh 2svh 4svh 2svh;
         gap: 3svh;
-        background-color: white;
         overflow-y: scroll;
 
         .daily-bloc {
@@ -330,13 +357,15 @@ input:checked + .slider:before {
     
                 &.question-bloc {
                     margin-left: auto;
-                    background-color: #8f5ead;
+                    background-color: var(--color--global-primary);
                     color: white;
+                    border-radius: 1rem 0 1rem 1rem;
                 }
     
                 &.answer-bloc {
                     margin-right: auto;
-                    background-color: var(--gray-10);
+                    background-color: var(--grey-10);
+                    border-radius: 0 1rem 1rem 1rem;
 
                     .pending-round {
                         --round-size: 20px;
@@ -351,29 +380,19 @@ input:checked + .slider:before {
                         gap: 4px;
                   
                         .pending-dot {
-                          --dot-size: calc(var(--round-size) / 4);
-                          box-sizing: border-box;
-                          display: flex;
-                          min-width: var(--dot-size);
-                          width: var(--dot-size);
-                          max-width: var(--dot-size);
-                          min-height: var(--dot-size);
-                          height: var(--dot-size);
-                          max-height: var(--dot-size);
-                          background-color: var(--gray-70);
-                          border-radius: 500px;
-                  
-                          &.dot1 {
-                            animation: blink 1s infinite;
-                          }
-                          &.dot2 {
-                            animation: blink 1s 0.33s infinite;
-                          }
-                          &.dot3 {
-                            animation: blink 1s 0.66s infinite;
-                          }
+                            --dot-size: calc(var(--round-size) / 4);
+                            box-sizing: border-box;
+                            display: flex;
+                            min-width: var(--dot-size); width: var(--dot-size); max-width: var(--dot-size);
+                            min-height: var(--dot-size); height: var(--dot-size); max-height: var(--dot-size);
+                            background-color: var(--grey-70);
+                            border-radius: 500px;
+                    
+                            &.dot1 { animation: blink 1s infinite; }
+                            &.dot2 { animation: blink 1s .33s infinite; }
+                            &.dot3 { animation: blink 1s .66s infinite; }
                         }
-                      }
+                    }
                   
                 }
             }
@@ -388,24 +407,24 @@ input:checked + .slider:before {
         min-width: 100%; width: 100%; max-width: 100%;
         min-height: 13svh; height: 13svh; max-height: 13svh;
         padding: 2svh 2svh;
-        background-color: var(--gray-10);
+        background-color: var(--grey-10);
 
         --button-size: 7svh;
 
         .question-display {
             justify-content: flex-start;
             align-items: flex-start;
-            background-color: white;
+            background-color: var(--html-background-color);
             min-width: calc(100% - (var(--button-size) + 2svh)); width: calc(100% - (var(--button-size) + 2svh)); max-width: calc(100% - (var(--button-size) + 2svh));
             height: 9svh;
             padding: .75svh 1.5svh;
             border-radius: 1rem;
             font-size: .88rem;
-            border: 2px solid var(--gray-30);
+            border: 2px solid var(--grey-30);
 
             &.disabled {
-                border: 2px solid var(--gray-20);
-                background-color:var(--gray-10) ;
+                border: 2px solid var(--grey-20);
+                background-color:var(--grey-10) ;
             }
         }
 
@@ -414,14 +433,14 @@ input:checked + .slider:before {
             align-items: center;
             border-radius: 200rem;
             padding: 2svh;
-            background-color: #8f5ead;
-            color: white;
+            background-color: var(--color--global-primary);
             
             min-width: var(--button-size); width: var(--button-size); max-width: var(--button-size);
             min-height: var(--button-size); height: var(--button-size); max-height: var(--button-size);
 
             &:disabled {
-                background-color: var(--gray-20);
+                background-color: var(--grey-20);
+                opacity: .5;
             }
 
             img {
